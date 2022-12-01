@@ -1,0 +1,59 @@
+<%- include("partails/nav") %>
+<style>
+body{
+    align-items: center;
+    justify-content: center;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+td, th {
+  border: 1px solid #2973c9;
+  text-align: left;
+  padding: 8px;
+}
+</style>
+</head>
+<body>
+
+    <div class="containerBox" style="margin-left: 60px">
+        <div class="homePage">
+          <div class="name">
+            <h1 class="d-flex mt-1 " id="greeting"></h1>
+            <h3>View Patients</h3>
+          </div>
+        </div>
+      </div>
+
+<% if (Patients.length > 0) { %>
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>Contact</th>
+          <th>ID </th>
+          <th>Disease</th>
+          <th>Amount</th>
+        </tr>
+    <% Patients.forEach(Patient => { %>
+        
+        <tr>
+            <td><%= Patient.name %> </td>
+            <td> <%= Patient.mobileNo %> </td>
+            <td>  <%= Patient.patientId %> </td>
+            <td> <%= Patient.disease %> </td>
+            <td><%= Patient.fees %> </td>
+          </tr>
+    <% }) %>
+    </table>
+  <% } else { %>
+    <td> There is no data to display </td>
+  <% } %>
+
+
+</body>
+</html>
